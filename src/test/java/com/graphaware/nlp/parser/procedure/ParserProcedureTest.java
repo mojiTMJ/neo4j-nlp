@@ -1,8 +1,14 @@
 package com.graphaware.nlp.parser.procedure;
 
 import com.graphaware.nlp.NLPIntegrationTest;
+import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.pdf.PDFParser;
+import org.apache.tika.sax.ToXMLContentHandler;
+import org.apache.tika.sax.XHTMLContentHandler;
 import org.junit.Test;
+import org.xml.sax.ContentHandler;
 
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;

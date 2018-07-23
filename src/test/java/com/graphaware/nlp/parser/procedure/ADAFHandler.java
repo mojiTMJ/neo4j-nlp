@@ -20,6 +20,8 @@ public class ADAFHandler extends ToXMLContentHandler {
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
         super.startElement(uri, localName, qName, atts);
+        System.out.println("start el");
+        System.out.println(qName);
         if (qName.equals("p")) {
 //            System.out.println("p");
             if (currentClass == null) {
@@ -32,6 +34,8 @@ public class ADAFHandler extends ToXMLContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
+        System.out.println("end el");
+        System.out.println(qName);
         if (qName.equals("p") && currentP == 1 && currentClass != null) {
             descMap.put(currentClass, sb.toString().replaceAll("  ", " "));
             sb = new StringBuilder();
@@ -40,7 +44,7 @@ public class ADAFHandler extends ToXMLContentHandler {
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-//        System.out.println(ch);
+        System.out.println(ch);
         String content = new String(ch).trim();
         if (content. matches("\\*[0-9]+\\*")) {
             String cl = content.replaceAll("\\*", "");
